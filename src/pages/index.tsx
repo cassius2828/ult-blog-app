@@ -5,7 +5,7 @@ import { FaSearch } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 const HomePage = () => {
   return (
-    <div className="flex h-screen w-full flex-col">
+    <div className="flex h-full w-full flex-col">
       {/* header */}
       <header className="flex h-20 w-full items-center justify-between border-b-[1px] border-gray-200 bg-gray-50 lg:justify-around">
         {/* burger */}
@@ -29,10 +29,10 @@ const HomePage = () => {
         </div>
       </header>
       {/* main */}
-      <section className="grid h-full  w-full  grid-cols-1 place-items-center md:grid-cols-12">
-        <main className="col-span-8 h-full w-full border-r border-gray-300 bg-red-300 px-4 py-10 lg:px-20">
+      <section className="grid h-full  w-full  grid-cols-1 md:grid-cols-12">
+        <main className="col-span-8 h-full w-full border-r border-gray-300 px-4 py-10 lg:px-20">
           <div className="flex w-full flex-col space-y-4 ">
-            <div className="flex space-x-4 bg-yellow-500">
+            <div className="flex space-x-4 ">
               {/* search input */}
               <label
                 className="relative ml-4 w-full rounded-3xl border border-gray-800"
@@ -48,8 +48,8 @@ const HomePage = () => {
                 />
               </label>
               {/* tags and topics */}
-              <div className="flex w-full items-center justify-end bg-green-300">
-                <div>mt topics</div>
+              <div className="flex w-full items-center justify-end ">
+                <div className="mr-3">My Topics:</div>
                 <div className="flex space-x-4">
                   {Array.from({ length: 4 }).map((_, i) => (
                     <div
@@ -63,10 +63,10 @@ const HomePage = () => {
               </div>
             </div>
             <div className="flex w-full items-center justify-between border-b border-gray-300 pb-8">
-              <div>articles</div>
+              <div>Articles</div>
               <div>
                 <button className="flex items-center space-x-2 rounded-3xl border border-gray-800 px-4 py-1.5 font-semibold">
-                  <div>floowing</div>
+                  <div>Following</div>
                   <div>
                     <IoIosArrowDown className="text-xl" />
                   </div>
@@ -112,7 +112,7 @@ const HomePage = () => {
                   </div>
                 </div>
                 {/* tags and topics */}
-                <div className="flex w-full items-center justify-end bg-green-300">
+                <div className="flex w-full items-center justify-end ">
                   <div>mt topics</div>
                   <div className="flex items-center space-x-2">
                     {Array.from({ length: 4 }).map((_, i) => (
@@ -129,8 +129,60 @@ const HomePage = () => {
             ))}
           </div>
         </main>
-        <aside className="col-span-4 h-full w-full bg-blue-300">
-          this is used for side bar
+        <aside className="col-span-4 flex  w-full flex-col p-6 ">
+          <div>
+            <h3 className="my-6 font-semibold">
+              People you might be interested in
+            </h3>
+            <div className="flex flex-col space-y-4">
+              {Array.from({ length: 4 }).map((_, i) => (
+                <div key={i} className="flex items-center space-x-5">
+                  <div className="h-10 w-10 flex-none rounded-full bg-gray-300"></div>
+                  <div>
+                    <div className="text-sm font-bold text-gray-900">
+                      John Doe
+                    </div>
+                    <div className="text-xs">
+                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                      Alias a laboriosam sint perferendis magnam vel animi.
+                      Velit quas reiciendis distinctio ipsum doloribus rem.
+                      Consectetur illum modi dignissimos dolor hic vero.
+                    </div>
+                  </div>
+                  <div>
+                    <button className="flex items-center space-x-1 rounded-md border border-gray-200 px-2 py-1 transition hover:border-gray-400 hover:text-gray-800">
+                      Follow
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* ading list */}
+          <div className="sticky top-20">
+            <h3 className="my-3 font-semibold capitalize">your reading list</h3>
+            <div className="flex flex-col space-y-4">
+              {Array.from({ length: 4 }).map((_, i) => (
+                <div key={i} className="group flex items-center space-x-6">
+                  <div className="aspect-square h-full w-2/5 rounded-xl bg-gray-300"></div>
+                  <div className="flex w-3/5 flex-col space-y-2">
+                    <div className="text-lg font-semibold decoration-indigo-600 group-hover:underline">
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    </div>
+                    <div>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Possimus assumenda nobis sapiente non quia!
+                    </div>
+                    <div className="flex w-full items-center space-x-1">
+                      <div className="h-8 w-8 rounded-full bg-gray-300"></div>
+                      <div>Cassius Reynolds&#x2002;</div>
+                      <div>22 Dec. 2022</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </aside>
       </section>
     </div>
