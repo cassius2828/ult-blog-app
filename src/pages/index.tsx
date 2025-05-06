@@ -1,34 +1,12 @@
-import { VscThreeBars } from "react-icons/vsc";
-import { FaRegBell } from "react-icons/fa";
-import { RiFileEditLine } from "react-icons/ri";
 import { FaSearch } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
+import MainLayout from "../layout/MainLayout";
+import Modal from "../components/Modal";
+import { useState } from "react";
 const HomePage = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
-    <div className="flex h-full w-full flex-col">
-      {/* header */}
-      <header className="flex h-20 w-full items-center justify-between border-b-[1px] border-gray-200 bg-gray-50 lg:justify-around">
-        {/* burger */}
-        <div className="p-2">
-          <VscThreeBars className="text-2xl text-gray-600" />
-        </div>
-        {/* logo / title */}
-        <span className="text-xl font-thin">Ultimate Blog App</span>
-        {/* nav actions */}
-        <div className="flex items-center gap-4 p-2">
-          <div>
-            <FaRegBell className="text-xl" />
-          </div>
-          <div>
-            <div className="h-5 w-5 rounded-full bg-gray-600" />
-          </div>
-          <button className="flex items-center space-x-1 rounded-md border border-gray-200 px-2 py-1 transition hover:border-gray-400 hover:text-gray-800">
-            <span className="text-sm">Write</span>
-            <RiFileEditLine className="text-xl" />
-          </button>
-        </div>
-      </header>
-      {/* main */}
+    <MainLayout>
       <section className="grid h-full  w-full  grid-cols-1 md:grid-cols-12">
         <main className="col-span-8 h-full w-full border-r border-gray-300 px-4 py-10 lg:px-20">
           <div className="flex w-full flex-col space-y-4 ">
@@ -185,7 +163,14 @@ const HomePage = () => {
           </div>
         </aside>
       </section>
-    </div>
+      <Modal
+        title="sample title"
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+      >
+        hello from write modal
+      </Modal>
+    </MainLayout>
   );
 };
 export default HomePage;
