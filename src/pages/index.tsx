@@ -1,10 +1,9 @@
 import { FaSearch } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
-import { useGlobalContext } from "../_context";
-import Modal from "../components/Modal";
+import WriteFormModal from "../components/Modal/WriteFormModal";
 import MainLayout from "../layouts/MainLayout";
 const HomePage = () => {
-  const { isWriteModalOpen, setIsWriteModalOpen } = useGlobalContext();
+
 
   return (
     <div className="flex h-full w-full flex-col">
@@ -169,12 +168,7 @@ const HomePage = () => {
             </div>
           </aside>
         </section>
-        <Modal
-          isOpen={isWriteModalOpen}
-          onClose={() => setIsWriteModalOpen(false)}
-        >
-          <form onSubmit={() => console.log("submit")}>here is form</form>
-        </Modal>
+        <WriteFormModal />
       </MainLayout>
     </div>
   );

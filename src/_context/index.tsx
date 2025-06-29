@@ -1,7 +1,7 @@
-import { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 type GlobalContextType = {
   isWriteModalOpen: boolean;
-  setIsWriteModalOpen: (isOpen: boolean) => void;
+  setIsWriteModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 type ProviderProps = {
   children: React.ReactNode;
