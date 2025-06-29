@@ -1,15 +1,15 @@
 import { createContext, useContext, useState } from "react";
 type GlobalContextType = {
-  isModelOpen: boolean;
-  setIsModelOpen: (isOpen: boolean) => void;
+  isWriteModalOpen: boolean;
+  setIsWriteModalOpen: (isOpen: boolean) => void;
 };
 type ProviderProps = {
   children: React.ReactNode;
 };
 const GlobalContextProvider = ({ children }: ProviderProps) => {
-  const [isModelOpen, setIsModelOpen] = useState(false);
+  const [isWriteModalOpen, setIsWriteModalOpen] = useState(false);
   return (
-    <GlobalContext.Provider value={{ isModelOpen, setIsModelOpen }}>
+    <GlobalContext.Provider value={{ isWriteModalOpen, setIsWriteModalOpen }}>
       {children}
     </GlobalContext.Provider>
   );

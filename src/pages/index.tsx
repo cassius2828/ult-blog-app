@@ -1,13 +1,11 @@
 import { FaSearch } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
-import MainLayout from "../layouts/MainLayout";
+import { useGlobalContext } from "../_context";
 import Modal from "../components/Modal";
-import { useState } from "react";
+import MainLayout from "../layouts/MainLayout";
 const HomePage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
+  const { isWriteModalOpen, setIsWriteModalOpen } = useGlobalContext();
+
   return (
     <div className="flex h-full w-full flex-col">
       {/* main */}
@@ -171,9 +169,11 @@ const HomePage = () => {
             </div>
           </aside>
         </section>
-        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-          <h2 className="text-lg font-semibold">Modal Title</h2>
-          <p className="mt-2">This is the modal content.</p>
+        <Modal
+          isOpen={isWriteModalOpen}
+          onClose={() => setIsWriteModalOpen(false)}
+        >
+          <form onSubmit={() => console.log("submit")}>here is form</form>
         </Modal>
       </MainLayout>
     </div>

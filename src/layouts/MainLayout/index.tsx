@@ -5,11 +5,11 @@ import React from "react";
 import { FaRegBell } from "react-icons/fa";
 import { RiFileEditLine } from "react-icons/ri";
 import { VscThreeBars } from "react-icons/vsc";
+import { useGlobalContext } from "../../_context";
 
 const MainLayout = ({ children }: React.PropsWithChildren) => {
   const { data: session, status } = useSession();
-  console.log("Session data:", session);
-  console.log("Session status:", status);
+  const {  setIsWriteModalOpen } = useGlobalContext();
 
   return (
     <div className="flex h-full w-full flex-col">
@@ -38,7 +38,10 @@ const MainLayout = ({ children }: React.PropsWithChildren) => {
                 />
               </div>
             </div>
-            <button className="flex items-center space-x-1 rounded-md border border-gray-200 px-2 py-1 transition hover:border-gray-400 hover:text-gray-800">
+            <button
+              onClick={() => setIsWriteModalOpen(true)}
+              className="flex items-center space-x-1 rounded-md border border-gray-200 px-2 py-1 transition hover:border-gray-400 hover:text-gray-800"
+            >
               <span className="text-sm">Write</span>
               <RiFileEditLine className="text-xl" />
             </button>
